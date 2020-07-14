@@ -12,7 +12,7 @@ class Wagon {
     // Adds the traveler to the wagon if there is space. If the wagon is already at maximum capacity, don't add them.
     join(traveler) {
 
-        if (this.capacity >= 0) {
+        if (this.getAvailableSeatCount () > 0 ) {
             this.passengers.push(traveler)
         }
     }
@@ -28,6 +28,7 @@ class Wagon {
     // Returns the total amount of food among all passengers in the wagon.
     totalFood() {
         let allFood = 0
+        console.log(this.passengers)
         for (let index = 0; index < this.passengers.length; index += 1) {
             allFood += this.passengers[index].food
         }

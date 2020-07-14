@@ -9,8 +9,9 @@ class Traveler {
         return this.food += 2
     }
     eat() {
-        this.food -= 1
-        if (this.food >= 0) {
+        
+        if (this.food > 0) {
+            this.food -= 1
             this.isHealthy = true
         }
         else { return this.isHealthy = false }
@@ -29,17 +30,18 @@ class Doctor extends Traveler {
 class Hunter extends Traveler {
     constructor(newTraveler, food, isHealthy) {
         super(newTraveler, food, isHealthy)
+        this.food = 2
         }
      eat() {
             // Consumes 2 units of food. If the hunter doesn't have 2 food when they are instructed to eat, they eat as much as they can (0 or 1 unit), but the hunter is no longer healthy.
 
-            if (this.food < 2 ) {
+            if (this.food > 2 ) {
                 this.food -= 2
                 this.isHealthy = true
             }
             else { 
                 this.food -= 1
-                return this.isHealthy = false }
+                this.isHealthy = false }
         }
     
     hunt() {
